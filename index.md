@@ -1,32 +1,19 @@
-## Welcome to GitHub Pages
+## Welcome to the yarn-sense project for Teamwork Analytics
 
 You can use the [editor on GitHub](https://github.com/Teamwork-Analytics/yarn-sense/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Repositories
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This GitHub project explain the code used to generate multimodal leaning analytic interfaces to support teamwork activity. Different data **modalities** are normally collected in an in-the-wild study. Each modality is independientelly pre-processed... Modalities _Audio_ and `Code` text
 
-```markdown
-Syntax highlighted code block
+1. [Obs-tools](https://github.com/Teamwork-Analytics/obs-rules) repo: is the observation tool and UI. Observations can be canpured. Modality: _Epistemic, Actions_
+3. [multimodal-audio](https://github.com/Teamwork-Analytics/multimodal-audio) repo: Modality: _Audio_
 
-# Header 1
-## Header 2
-### Header 3
+### Architecture
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+![Image](src)
 
 ### Jekyll Themes
 
