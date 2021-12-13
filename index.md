@@ -13,7 +13,6 @@ This GitHub project explain the code used to generate multimodal leaning analyti
 
 ### Architecture
 
-![Image](src)
 [here the architecture description](architecture.md)
 
 ### Jekyll Themes
