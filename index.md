@@ -16,8 +16,8 @@ These are some examples of MMLA interfaces:
 
 This GitHub project explain the code used to generate multimodal leaning analytic interfaces to support teamwork activity. Different data **modalities** are normally collected in an in-the-wild study. Each modality is independientelly pre-processed... Modalities _Audio_ and `Code` text
 
-1. [Obs-tools](https://github.com/Teamwork-Analytics/obs-rules) repo: is the observation tool and UI. Observations can be canpured. Modality: _Epistemic, Actions_
-3. [multimodal-audio](https://github.com/Teamwork-Analytics/multimodal-audio) repo: Modality: _Audio_
+1. [Obs-tools](https://github.com/Teamwork-Analytics/obs-rules) repo: is the observation tool and UI. With this application; 1) observations can be canptured and 2) different proxemics visualisations (e.g. proxemics ego-networks and full-networks) can also be automatically generated. Modality: _Epistemic, _Actions_
+3. [multimodal-audio](https://github.com/Teamwork-Analytics/multimodal-audio) repo: Modality: _Audio_ and _Video_
 
 ### Architecture
 
