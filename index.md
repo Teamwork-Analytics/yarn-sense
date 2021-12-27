@@ -1,6 +1,3 @@
-## License
-
-All the products [code] described in this project are licended under the Creative Commons Legal Code Licence CCO 1.0 Universal. Please read the details [here](https://github.com/Teamwork-Analytics/yarn-sense/blob/main/LICENSE)
 
 ## Welcome to the yarn-sense project for Teamwork Analytics
 
@@ -27,6 +24,9 @@ This GitHub project explain the code used to generate multimodal leaning analyti
 
 A whole explanation of the architecture is presented in the paper cited above. A brief explanation is described [here the architecture description](architecture.md).
 
+## License
+
+All the products [code] described in this project are licended under the Creative Commons Legal Code Licence CCO 1.0 Universal. Please read the details [here](https://github.com/Teamwork-Analytics/yarn-sense/blob/main/LICENSE)
 
 ### Whant to contribute or use the tool?
 
