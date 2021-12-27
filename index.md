@@ -16,17 +16,14 @@ These are some examples of MMLA interfaces:
 
 This GitHub project explain the code used to generate multimodal leaning analytic interfaces to support teamwork activity. Different data **modalities** are normally collected in an in-the-wild study. Each modality is independientelly pre-processed... Modalities _Audio_ and `Code` text
 
-1. [Obs-tools](https://github.com/Teamwork-Analytics/obs-rules) repo: is the observation tool and UI. With this application; 1) observations can be canptured and 2) different proxemics visualisations (e.g. proxemics ego-networks and full-networks) can also be automatically generated. Modality: _Epistemic, _Actions_
-3. [multimodal-audio](https://github.com/Teamwork-Analytics/multimodal-audio) repo: Modality: _Audio_ and _Video_
+1. [Obs-tools](https://github.com/Teamwork-Analytics/obs-rules) repo: is the observation tool and UI. With this application; 1) observations can be canptured and 2) different proxemics visualisations (e.g. proxemics ego-networks and full-networks) can also be automatically generated. Modality: Epistemic_, Actions_
+3. [multimodal-audio](https://github.com/Teamwork-Analytics/multimodal-audio) repo: Modality: Audio_ and Video_
 
 ### Architecture
 
-[here the architecture description](architecture.md)
+A whole explanation of the architecture is presented in the paper cited above. A brief explanation is described [here the architecture description](architecture.md).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Teamwork-Analytics/yarn-sense/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Whant to contribute or use the tool?
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+We encourage to contact us to collaborate [contact support](https://support.github.com/contact) and we can validate how can we do so.
