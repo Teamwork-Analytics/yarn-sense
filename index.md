@@ -8,9 +8,9 @@ The architecture for implementing the MMLA solution is described in the referenc
 
 These are some examples of MMLA interfaces:
 
-- Gloria Milena Fernández-Nieto, Simon Buckingham Shum, Kirsty Kitto, and Roberto Martínez-Maldonado. 2022. Beyond the LearningAnalytics Dashboard: Alternative Ways to Communicate Student Data Insights Combining Visualisation, Narrative and Storytelling.InLAK22: 12th International Learning Analytics and Knowledge Conference (LAK22), March 21–25, 2022, Online, USA.ACM, New York,NY, USA, 16 pages. https://doi.org/10.1145/3506860.3506895
-- G. M. Fernandez-Nieto et al., "Storytelling With Learner Data: Guiding Student Reflection on Multimodal Team Data," in IEEE Transactions on Learning Technologies, doi: 10.1109/TLT.2021.3131842.
-- Gloria Fernandez-Nieto, Roberto Martinez-Maldonado, Vanessa Echeverria, Kirsty Kitto, Pengcheng An,and Simon Buckingham Shum. 2021. What Can Analytics for Teamwork Proxemics Reveal About Positioning Dynamics In Clinical Simulations?.Proc. ACM Hum.-Comput. Interact.5, CSCW1, Article 185 (April 2021),24 pages. https://doi.org/10.1145/3449284
+- Gloria Milena Fernández-Nieto, Simon Buckingham Shum, Kirsty Kitto, and Roberto Martínez-Maldonado. 2022. Beyond the LearningAnalytics Dashboard: Alternative Ways to Communicate Student Data Insights Combining Visualisation, Narrative and Storytelling.InLAK22: 12th International Learning Analytics and Knowledge Conference (LAK22), March 21–25, 2022, Online, USA.ACM, New York,NY, USA, 16 pages. [https://doi.org/10.1145/3506860.3506895](https://doi.org/10.1145/3506860.3506895)
+- G. M. Fernandez-Nieto et al., "Storytelling With Learner Data: Guiding Student Reflection on Multimodal Team Data," in IEEE Transactions on Learning Technologies, doi: [10.1109/TLT.2021.3131842](10.1109/TLT.2021.3131842).
+- Gloria Fernandez-Nieto, Roberto Martinez-Maldonado, Vanessa Echeverria, Kirsty Kitto, Pengcheng An,and Simon Buckingham Shum. 2021. What Can Analytics for Teamwork Proxemics Reveal About Positioning Dynamics In Clinical Simulations?.Proc. ACM Hum.-Comput. Interact.5, CSCW1, Article 185 (April 2021),24 pages. [https://doi.org/10.1145/3449284](https://doi.org/10.1145/3449284)
 
 ### Repositories
 
