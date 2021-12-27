@@ -1,3 +1,7 @@
+## License
+
+All the products [code] described in this project are licended under the Creative Commons Legal Code Licence CCO 1.0 Universal. Please read the details [here](https://github.com/Teamwork-Analytics/yarn-sense/blob/main/LICENSE)
+
 ## Welcome to the yarn-sense project for Teamwork Analytics
 
 This research project aims to provide evidence for teachers and studets to reflect upon their f2f teamwork activity. The code described in this page belongs to a multimodal learning (MMLA) architecture implemented to automatically generate MMLA user-interfaces to support reflection practices.
