@@ -16,4 +16,4 @@ A conceptual approach is introduced for providing meaning to multimodal learning
 
 Based on the previous approach the research team conceptualise and implemented an architecture that automatically generates such MMLA interfaces, which are also enhaced with the use of data storytelling principles. See the scope of the architecture in the following diagram:
 
-![Image](images/ActivityDiagram.png)
+![Image](/images/ActivityDiagram.png)
