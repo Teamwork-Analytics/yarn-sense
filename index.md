@@ -22,7 +22,9 @@ This GitHub project explain the code used to generate multimodal leaning analyti
 
 ### Architecture
 
-A whole explanation of the architecture is presented in the paper cited above. A brief explanation is described [here the architecture description](architecture.md).
+A whole explanation of the architecture is presented in the paper cited above. A brief explanation of the high level architecture is presented [here ](architecture.md).
+
+Additionally, a Reference Implementation of the architecture can be consulted [here](Implementation.md)
 
 ## License
 
