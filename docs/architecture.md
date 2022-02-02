@@ -10,10 +10,10 @@ We use the aproximation presented in:
 
 A conceptual approach is introduced for providing meaning to multimodal learning data, collected from physical spaces (e.g. classroom). Such approach indicated that by using aspects such the learning design (e.g. critical actions that are required from students) or the teachers' pedagogical intentions (e.g. timeliness of students in reacting to certain actions) it is possible to interrogate multimodal data to provice visual/narrative evidence of teamwork in f2f settings. Additionally, this approach focused on the communication of insights as multimodal learning analytic interfaces incoporating storytelling principles (e.g. explaining the purpose of a visual, highlight the more relevant aspect of data) to support teachers/students interpretations. The approach is visually described as follows:
 
-![Image](/images/ConceptualDiagram.png)
+![Image](/yarn-sense/images/ConceptualDiagram.png)
 
 ## Architecture to automatically generate MMLA data stories
 
 Based on the previous approach the research team conceptualise and implemented an architecture that automatically generates such MMLA interfaces, which are also enhaced with the use of data storytelling principles. See the scope of the architecture in the following diagram:
 
-![Image](/images/ActivityDiagram.png)
+![Image](/yarn-sense/images/ActivityDiagram.png)
