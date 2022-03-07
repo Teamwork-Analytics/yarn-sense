@@ -11,6 +11,11 @@ import org.springframework.stereotype.Service;
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * API implementations
+ * @author Xinyu Li
+ */
+
 @Slf4j
 @Service
 public class BioDataServiceImpl implements BioDataServiceAPI {
@@ -19,6 +24,7 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
     /**
      * DeviceId:    3b9efd, a39bfd, 379efd
      * S/N:         A029AC, A029F6, A02555
+     * test method
      */
     @Override
     public void testConnectToEmpaticaDevice() throws Exception {
@@ -40,7 +46,6 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
 
             if (i == 1000) {
                 out.println("device_disconnect");
-//                System.out.println("---" + in.readLine() + "---");
             }
             i++;
         }
@@ -55,6 +60,8 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
      * DeviceId:
      * a39bfd,        3b9efd, 379efd
      * command: acc, bvp, gsr, ibi, tmp
+     *
+     * get data from the E4 server, then save the data to local file and kafka server
      * @param deviceId
      * @param command
      * @throws Exception
@@ -77,7 +84,6 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
         log.info("resp:" + in.readLine());
         producer = KafkaProducerUtils.createProducer();
 
-//        int i = 0;
         StringBuilder sb = new StringBuilder();
         String temp;
         while ((temp = in.readLine()) != null) {
@@ -94,11 +100,8 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
             }
 
             if (!BioDataController.dataCollectionSignal) {
-//                out.println("device_disconnect");
-//                System.out.println("---" + in.readLine() + "---");
                 break;
             }
-//            i++;
         }
 
         in.close();

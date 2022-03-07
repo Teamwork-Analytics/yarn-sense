@@ -4,6 +4,11 @@ package com.monash.analytics.utils.common.vo;
 import com.monash.analytics.utils.exception.CommonServiceException;
 import lombok.Data;
 
+/**
+ * Base response value object
+ * @author Xinyu Li
+ */
+
 @Data
 public class BaseResponseVO<M> {
     private Integer code;

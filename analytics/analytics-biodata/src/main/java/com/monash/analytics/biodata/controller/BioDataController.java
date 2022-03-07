@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 
+/**
+ * Controller for EDA data collection
+ *
+ * @author Xinyu Li
+ */
+
 @Slf4j
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -25,6 +31,9 @@ public class BioDataController {
      * DeviceId:    3b9efd, a39bfd, 379efd, 59ce11, 67cc11
      * S/N:         A029AC, A029F6, A02555, A03588, A03696
      * command:     acc, bvp, gsr, ibi, tmp
+     *
+     * start collect eda data api
+     *
      * @return
      */
     @RequestMapping("/start/{sessionid}")
@@ -57,6 +66,11 @@ public class BioDataController {
         dataCollectionSignal = true;
         return "bio data start success";
     }
+
+    /**
+     * stop collect eda data api
+     * @return
+     */
     @RequestMapping("/stop")
     public String stop() {
         dataCollectionSignal = false;

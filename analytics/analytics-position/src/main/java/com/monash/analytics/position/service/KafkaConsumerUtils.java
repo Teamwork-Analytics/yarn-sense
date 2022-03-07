@@ -16,8 +16,16 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.*;
 
+/**
+ * Kafka consumer utils
+ * @author Xinyu Li
+ */
+
 @Slf4j
 public class KafkaConsumerUtils {
+    /**
+     * consume data based on offset
+     */
     public static void commitOffset() {
         Properties props = new Properties();
         props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ConstantValues.KAFKA_SERVER);
@@ -69,6 +77,10 @@ public class KafkaConsumerUtils {
 
     }
 
+    /**
+     * control offset
+     * @param topicName
+     */
     public static void controlOffset(String topicName) {
         Properties props = new Properties();
         props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ConstantValues.KAFKA_SERVER);

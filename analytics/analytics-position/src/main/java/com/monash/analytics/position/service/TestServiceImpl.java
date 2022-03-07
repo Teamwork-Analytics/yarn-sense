@@ -2,6 +2,11 @@ package com.monash.analytics.position.service;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * test Kafka services APIs implementation
+ * @author Xinyu Li
+ */
+
 @Service
 public class TestServiceImpl implements TestServiceAPI {
     public void testConsumer() {

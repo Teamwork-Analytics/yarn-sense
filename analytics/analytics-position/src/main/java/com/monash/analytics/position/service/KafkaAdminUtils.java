@@ -11,9 +11,18 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Kafka admin utils
+ * @author Xinyu Li
+ */
+
 @Slf4j
 public class KafkaAdminUtils {
 
+    /**
+     * create admin client and setup configurations
+     * @return
+     */
     public static AdminClient adminClient() {
         Properties properties = new Properties();
         properties.setProperty(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, ConstantValues.KAFKA_SERVER);
@@ -28,6 +37,10 @@ public class KafkaAdminUtils {
         return adminClient;
     }
 
+    /**
+     * show all the topics
+     * @throws Exception
+     */
     public static void topicLists() throws Exception{
         AdminClient adminClient = adminClient();
         ListTopicsOptions options = new ListTopicsOptions();
@@ -42,6 +55,10 @@ public class KafkaAdminUtils {
         topicListings.forEach(System.out::println);
     }
 
+    /**
+     * create topics
+     * @param topicName
+     */
     public static void createTopic(String topicName) {
 
         AdminClient adminClient = adminClient();

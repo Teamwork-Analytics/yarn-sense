@@ -7,6 +7,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * main application start point
+ * @author Xinyu Li
+ */
+
 @ComponentScan(basePackages = {"com.monash.analytics"})
 @MapperScan(basePackages = {"com.monash.analytics.video.dao"})
 @EnableDiscoveryClient

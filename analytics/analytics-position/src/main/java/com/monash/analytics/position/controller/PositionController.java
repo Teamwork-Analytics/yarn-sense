@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.ws.rs.Path;
 import java.io.File;
 
+/**
+ * controller handles the position data collection
+ * @author Xinyu Li
+ */
+
 @Slf4j
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -21,6 +26,11 @@ public class PositionController {
     @Autowired
     private PositionServiceAPI positionServiceAPI;
 
+    /**
+     * start to get position data from pozyx server
+     * @param sessionid
+     * @return
+     */
     @RequestMapping(value = "/start/{sessionid}")
     public String startGetPosition(@PathVariable String sessionid) {
         sessionId = sessionid;
@@ -39,6 +49,10 @@ public class PositionController {
         return "position start success";
     }
 
+    /**
+     * stop to get position data
+     * @return
+     */
     @RequestMapping(value = "/stop")
     public String stopGetPosition() {
         try {

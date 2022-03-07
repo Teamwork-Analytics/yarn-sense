@@ -4,6 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
+
+/**
+ * main Eureka server application start point
+ *
+ * This module only handles the Eureka server
+ *
+ * @author Xinyu Li
+ */
+
 @EnableEurekaServer
 @SpringBootApplication
 public class AnalyticsEurekaServerApplication {

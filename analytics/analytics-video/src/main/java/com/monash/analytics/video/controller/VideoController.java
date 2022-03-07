@@ -13,6 +13,11 @@ import javax.ws.rs.Path;
 import java.io.*;
 import java.util.Base64;
 
+/**
+ * controller handles the video data collection
+ * @author Xinyu Li
+ */
+
 @Slf4j
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -22,6 +27,11 @@ public class VideoController {
     @Autowired
     private VideoServiceAPI videoServiceAPI;
 
+    /**
+     * start recording video
+     * @param sessionid
+     * @return
+     */
     @RequestMapping(value = "/video/start/{sessionid}")
     public String start(@PathVariable("sessionid") String sessionid) {
 
@@ -40,7 +50,10 @@ public class VideoController {
         return "video start success";
     }
 
-
+    /**
+     * stop recording video
+     * @return
+     */
     @RequestMapping(value = "/video/stop")
     public String stop() {
         controlVideo = "stop";

@@ -21,6 +21,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * position data collection service APIs implementation
+ * @author Xinyu Li
+ */
+
 @Slf4j
 @Service
 public class PositionServiceImpl implements PositionServiceAPI{
@@ -28,6 +33,12 @@ public class PositionServiceImpl implements PositionServiceAPI{
     private List<String> messageList = null;
     private Producer<String, String> producer = null;
 
+    /**
+     * start get position data from the pozyx server
+     * @param destPath
+     * @param sessionId
+     * @throws Exception
+     */
     @Override
     public void startRecordingPosition(String destPath, String sessionId) throws Exception {
         messageList = new ArrayList<>();
@@ -75,6 +86,11 @@ public class PositionServiceImpl implements PositionServiceAPI{
         sampleClient.subscribe(topic);
     }
 
+    /**
+     * stop recording position data
+     * @param destPath
+     * @throws Exception
+     */
     @Override
     public void stopRecordingPosition(String destPath) throws Exception {
         if (sampleClient != null) {
@@ -86,6 +102,10 @@ public class PositionServiceImpl implements PositionServiceAPI{
         }
     }
 
+    /**
+     * test method
+     * @throws Exception
+     */
     @Override
     public void testRecordingPosition() throws Exception {
         String topic        = "tags";
@@ -126,6 +146,11 @@ public class PositionServiceImpl implements PositionServiceAPI{
         while(true){}
     }
 
+    /**
+     * save position data to local files
+     * @param destPath
+     * @throws IOException
+     */
     private void saveDataToFile(String destPath) throws IOException {
         if (messageList != null && !messageList.isEmpty()) {
             DateTime dt = new DateTime();

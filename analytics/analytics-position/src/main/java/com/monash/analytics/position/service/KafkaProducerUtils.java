@@ -16,9 +16,18 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import java.time.Duration;
 import java.util.*;
 
+/**
+ * Kafka producer utils
+ * @author Xinyu Li
+ */
+
 public class KafkaProducerUtils {
 
 
+    /**
+     * create producer and setup configurations
+     * @return
+     */
     public static Producer<String, String> createProducer() {
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ConstantValues.KAFKA_SERVER);
@@ -41,6 +50,12 @@ public class KafkaProducerUtils {
         return producer;
     }
 
+    /**
+     * use producer to send data
+     * @param producer
+     * @param message
+     * @param sessionId
+     */
     public static void producerSend(Producer<String, String> producer, String message, String sessionId) {
         //ProducerRecord
         ProducerRecord<String, String> record = new ProducerRecord<String, String>(ConstantValues.POSITION_TOPIC_NAME, "key-"
@@ -48,6 +63,10 @@ public class KafkaProducerUtils {
         producer.send(record);
     }
 
+    /**
+     * close producer
+     * @param producer
+     */
     public static void producerClose(Producer<String, String> producer) {
         if (producer != null) {
             producer.close();

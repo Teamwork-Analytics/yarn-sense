@@ -9,9 +9,18 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import java.util.Properties;
 import java.util.UUID;
 
+
+/**
+ * Kafka operation utils
+ * @author Xinyu Li
+ */
+
 public class KafkaProducerUtils {
 
-
+    /**
+     * create producer and setup all the configurations
+     * @return
+     */
     public static Producer<String, String> createProducer() {
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ConstantValues.KAFKA_SERVER);
@@ -33,12 +42,23 @@ public class KafkaProducerUtils {
         return producer;
     }
 
+    /**
+     * use producer and send data to kafka
+     * @param producer
+     * @param message
+     * @param deviceId
+     * @param sessionId
+     */
     public static void producerSend(Producer<String, String> producer, String message, String deviceId, String sessionId) {
         //ProducerRecord
         ProducerRecord<String, String> record = new ProducerRecord<String, String>(ConstantValues.EMPATICA_TOPIC_NAME, "key-" + sessionId + "-" + UUID.randomUUID(), "empatica-" + deviceId + "-" + message);
         producer.send(record);
     }
 
+    /**
+     * close producer
+     * @param producer
+     */
     public static void producerClose(Producer<String, String> producer) {
         if (producer != null) {
             producer.close();

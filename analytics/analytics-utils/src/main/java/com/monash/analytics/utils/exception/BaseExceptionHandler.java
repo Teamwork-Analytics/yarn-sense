@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Base exception handler
+ * @author Xinyu Li
+ */
+
 @Slf4j
 @ControllerAdvice
 public class BaseExceptionHandler {

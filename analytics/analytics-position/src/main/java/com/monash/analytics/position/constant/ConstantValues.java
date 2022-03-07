@@ -4,6 +4,11 @@ import com.google.common.collect.ImmutableMap;
 
 import java.util.Map;
 
+/**
+ * common used constant values
+ * @author Xinyu Li
+ */
+
 public class ConstantValues {
     public static final String POSITION_TOPIC_NAME = "position";
 

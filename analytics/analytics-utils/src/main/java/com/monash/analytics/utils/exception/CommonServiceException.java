@@ -2,6 +2,10 @@ package com.monash.analytics.utils.exception;
 
 import lombok.Data;
 
+/**
+ * Common service exception
+ * @author Xinyu Li
+ */
 
 @Data
 public class CommonServiceException extends Exception {

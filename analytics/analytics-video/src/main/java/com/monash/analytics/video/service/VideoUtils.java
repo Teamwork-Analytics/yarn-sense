@@ -27,6 +27,11 @@ import org.bytedeco.javacv.*;
 import org.bytedeco.javacv.FrameRecorder.Exception;
 import org.bytedeco.opencv.opencv_core.IplImage;
 
+/**
+ * Video utils
+ * @author Xinyu Li
+ */
+
 @Slf4j
 public class VideoUtils {
     //threads
@@ -57,7 +62,13 @@ public class VideoUtils {
         return state;
     }
 
-
+    /**
+     * setup FFmpeg configuration
+     * @param fileName
+     * @param isHaveDevice
+     * @throws FrameGrabber.Exception
+     * @throws FFmpegFrameRecorder.Exception
+     */
     public VideoUtils(String fileName, boolean isHaveDevice) throws FrameGrabber.Exception, FFmpegFrameRecorder.Exception {
 
         grabber = FrameGrabber.createDefault(0); //local camera default device id is 0
@@ -118,6 +129,9 @@ public class VideoUtils {
         this.isHaveDevice = isHaveDevice;
     }
 
+    /**
+     * create new thread and get the video source
+     */
     public void init() {
         try {
             grabber.start();
@@ -169,6 +183,9 @@ public class VideoUtils {
 
     }
 
+    /**
+     * get screen images and save to video
+     */
     private void screenCapture() {
         // 录屏
         screenTimer = new ScheduledThreadPoolExecutor(1);
@@ -222,6 +239,12 @@ public class VideoUtils {
             }
         }, (int) (1000 / frameRate), (int) (1000 / frameRate), TimeUnit.MILLISECONDS);
     }
+
+    /**
+     * conver timestamp to readable time
+     * @param elapsed
+     * @return
+     */
     private String format(long elapsed) {
         int hour, minute, second, milli;
         milli = (int) (elapsed % 1000);
@@ -238,7 +261,9 @@ public class VideoUtils {
         return String.format("%02d:%02d:%02d:%03d", hour, minute, second, milli);
     }
 
-
+    /**
+     * get sound and save to video
+     */
     public void SoundCapture() {
 
         try {
@@ -282,6 +307,9 @@ public class VideoUtils {
         }, (int) (1000 / frameRate), (int) (1000 / frameRate), TimeUnit.MILLISECONDS);
     }
 
+    /**
+     * pause recording
+     */
     public void pause() {
         state="pause";
         screenTimer.shutdownNow();
@@ -294,6 +322,9 @@ public class VideoUtils {
 
     }
 
+    /**
+     * stop recording
+     */
     public void stop() {
         state="stop";
         if (null != screenTimer) {

@@ -3,6 +3,11 @@ package com.monash.analytics.video.service;
 import java.io.File;
 import java.io.InputStream;
 
+/**
+ * Video service APIs
+ * @author Xinyu Li
+ */
+
 public interface VideoServiceAPI {
 //    void informAllServiceStop() throws Exception;
 //    void informAllServiceStart(String sessionId) throws Exception;

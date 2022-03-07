@@ -18,6 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Video service APIs implementation
+ * @author Xinyu Li
+ */
+
 @Slf4j
 @Service
 public class VideoServiceImpl implements VideoServiceAPI{
@@ -29,6 +34,11 @@ public class VideoServiceImpl implements VideoServiceAPI{
     @Autowired
     private LoadBalancerClient eurekaClient;
 
+    /**
+     * Asynchronously use thread to start video recording
+     * @param destPath
+     * @throws Exception
+     */
     @Async("videoRecordingExecutor")
     @Override
     public void recordingVideoUsingFFmpeg(String destPath) throws Exception {
