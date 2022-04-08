@@ -26,6 +26,8 @@ public class PositionController {
     @Autowired
     private PositionServiceAPI positionServiceAPI;
 
+    private String status = "";
+
     /**
      * start to get position data from pozyx server
      * @param sessionid
@@ -34,6 +36,12 @@ public class PositionController {
     @RequestMapping(value = "/start/{sessionid}")
     public String startGetPosition(@PathVariable String sessionid) {
         sessionId = sessionid;
+
+        if (status.equals("start")) {
+            return "position already started";
+        }
+
+        status = "start";
         File dir = new File(ConstantValues.FILE_SAVE_PATH + sessionid);
         if (!dir.exists()) {
             log.info("start position make dir result: " + dir.mkdir());
@@ -44,6 +52,9 @@ public class PositionController {
         try {
             positionServiceAPI.startRecordingPosition(ConstantValues.FILE_SAVE_PATH + sessionid + "\\", sessionid);
         } catch (Exception e) {
+            e.printStackTrace();
+            status = "stop";
+            log.error("exception in startGetPosition");
             return "exception in startGetPosition";
         }
         return "position start success";
@@ -56,6 +67,10 @@ public class PositionController {
     @RequestMapping(value = "/stop")
     public String stopGetPosition() {
         try {
+            if (status.equals("stop")) {
+                return "position already stopped";
+            }
+            status = "stop";
             positionServiceAPI.stopRecordingPosition(ConstantValues.FILE_SAVE_PATH + sessionId + "\\");
         } catch (Exception e) {
             return "exception in stopRecordingPosition";

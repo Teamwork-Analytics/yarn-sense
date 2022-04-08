@@ -32,7 +32,6 @@ public class KafkaProducerUtils {
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ConstantValues.KAFKA_SERVER);
         properties.setProperty("security.protocol", "SASL_SSL");
-//        properties.setProperty("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule   required username='6CINJP7JL3B3JPMG'   password='zBLiTuMlgEoPsv9/4uw39cQ0gvAoF/9FID33oytohydMJf99lYh9YuBHixKiFm7t';");
         properties.setProperty("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule   required username='"
                 + ConstantValues.KAFKA_API_KEY + "'   password='" + ConstantValues.KAFKA_API_SECRET + "';");
         properties.setProperty("sasl.mechanism", "PLAIN");

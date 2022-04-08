@@ -20,7 +20,7 @@ public class EntityGenerator {
 
     private String outputDir = "/Users/xinyu/developer/IdeaProjects/analytics-parent/analytics-common/src/main/java";
     private String author = "xinyu";
-    private String url = "jdbc:mysql://127.0.0.1:3306/imooc_meetingfilm?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=UTC";
+    private String url = "jdbc:mysql://127.0.0.1:3306/for_future_use?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=UTC";
     private String driverName = "com.mysql.cj.jdbc.Driver";
     private String userName = "root";
     private String userPwd = "5r6t7y8U";

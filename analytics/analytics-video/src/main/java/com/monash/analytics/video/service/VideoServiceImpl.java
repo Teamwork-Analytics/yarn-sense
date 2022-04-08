@@ -43,20 +43,21 @@ public class VideoServiceImpl implements VideoServiceAPI{
     @Override
     public void recordingVideoUsingFFmpeg(String destPath) throws Exception {
         DateTime dt = new DateTime();
-        String time = dt.toString("yyyy-MM-dd_HH-mm-ss");
+        String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
+        FileUtils.writeStringToFile(new File(destPath + "sync.txt"), "start receive video data _____" + time + "\n", "UTF-8", true);
 
-        VideoUtils videoRecord = new VideoUtils(destPath + "_video_" + time, true);
-        videoRecord.init();
-        videoRecord.start();
-
+        VideoController.videoRecord.start();
         while (true) {
+            if (VideoController.controlVideo.equalsIgnoreCase("stop")) {
+                VideoController.videoRecord.stop();
 
-                if (VideoController.controlVideo.equalsIgnoreCase("stop")) {
-                    videoRecord.stop();
-                    log.info("****stop recording****");
-                    break;
-                }
+                log.info("****stop recording****");
+                break;
+            }
         }
+        DateTime dt2 = new DateTime();
+        String time2 = dt2.toString("yyyy-MM-dd_HH-mm-ss-SSS");
+        FileUtils.writeStringToFile(new File(destPath + "sync.txt"), "stop receive video data _____" + time2 + "\n", "UTF-8", true);
         log.info("video recording finish");
     }
 }

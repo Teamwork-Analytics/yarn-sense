@@ -46,7 +46,7 @@ public class PositionServiceImpl implements PositionServiceAPI{
         String content      = "Message from MqttPublishSample";
         int qos             = 2;
         String broker       = "tcp://" + ConstantValues.LOCAL_SERVER_NAME + ":1883";
-        String clientId     = "JavaSample";
+        String clientId     = "JavaSample"; //TODO 需测试
         MemoryPersistence persistence = new MemoryPersistence();
         producer = KafkaProducerUtils.createProducer();
 
@@ -56,6 +56,9 @@ public class PositionServiceImpl implements PositionServiceAPI{
         log.info("Connecting to broker: "+broker);
         sampleClient.connect(connOpts);
         log.info("Connected");
+        DateTime dt = new DateTime();
+        String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
+        FileUtils.writeStringToFile(new File(destPath + "sync.txt"), "start receive position data _____" + time + "\n", "UTF-8", true);
 
         sampleClient.setCallback(new MqttCallback() {
             public void connectionLost(Throwable cause) {
@@ -73,9 +76,10 @@ public class PositionServiceImpl implements PositionServiceAPI{
 
                 messageList.add(message.toString());
                 KafkaProducerUtils.producerSend(producer, message.toString(), sessionId);
-                if (messageList.size() == 1000) {
+                if (messageList.size() >= 1000) {
                     saveDataToFile(destPath);
                 }
+
             }
 
             public void deliveryComplete(IMqttDeliveryToken token) {
@@ -94,11 +98,20 @@ public class PositionServiceImpl implements PositionServiceAPI{
     @Override
     public void stopRecordingPosition(String destPath) throws Exception {
         if (sampleClient != null) {
+            DateTime dt = new DateTime();
+            String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
+            FileUtils.writeStringToFile(new File(destPath + "sync.txt"), "stop receive position data _____" + time + "\n", "UTF-8", true);
+
             saveDataToFile(destPath);
             sampleClient.disconnectForcibly();
             sampleClient.close();
             log.info("force stop successfully");
             KafkaProducerUtils.producerClose(producer);
+
+            String sessionId = destPath.substring(destPath.length() - 4, destPath.length() - 1);
+            File copied = new File(
+                    "C:\\develop\\obs-rules\\server\\localisation\\data\\" + sessionId + ".json");
+            FileUtils.copyFile(new File(destPath + sessionId + ".json"), copied);
         }
     }
 
@@ -153,11 +166,11 @@ public class PositionServiceImpl implements PositionServiceAPI{
      */
     private void saveDataToFile(String destPath) throws IOException {
         if (messageList != null && !messageList.isEmpty()) {
-            DateTime dt = new DateTime();
-            String time = dt.toString("yyyy-MM-dd_HH-mm-ss");
-            String fileName = time + ".json";
-            FileUtils.writeLines(new File(destPath + fileName), messageList, true);
-            log.info("save position data to file:" + destPath + fileName);
+            String sessionId = destPath.substring(destPath.length() - 4, destPath.length() - 1);
+            log.error(sessionId);
+            FileUtils.writeLines(new File(destPath + sessionId + ".json"), messageList, true);
+            log.info("save position data to file:" + destPath + sessionId + ".json");
+
             messageList.clear();
         }
     }

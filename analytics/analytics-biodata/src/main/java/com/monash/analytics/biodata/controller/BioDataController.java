@@ -25,12 +25,19 @@ public class BioDataController {
     @Autowired
     private BioDataServiceAPI bioDataServiceAPI;
 
-    public static boolean dataCollectionSignal = false;
+    public static String dataCollectionSignal = "";
+
+    public static String baselineSignal = "";
 
     /**
      * DeviceId:    3b9efd, a39bfd, 379efd, 59ce11, 67cc11
      * S/N:         A029AC, A029F6, A02555, A03588, A03696
      * command:     acc, bvp, gsr, ibi, tmp
+     * acc - 3-axis acceleration
+     * bvp - Blood Volume Pulse
+     * gsr - Galvanic Skin Response
+     * ibi - Interbeat Interval and Heartbeat
+     * tmp - Skin Temperature
      *
      * start collect eda data api
      *
@@ -39,8 +46,13 @@ public class BioDataController {
     @RequestMapping("/start/{sessionid}")
     public String start(@PathVariable("sessionid") String sessionid) {
 
+
+        if (dataCollectionSignal.equals("start")) {
+            return "empatica already started";
+        }
+
         String[] commandArray = {"acc", "bvp", "gsr", "ibi", "tmp"};
-        String[] deviceArray = {"379efd", "a39bfd"};  //"3b9efd",
+        String[] deviceArray = {"3b9efd", "a39bfd", "379efd", "59ce11"};
 
 
         File dir = new File(ConstantValues.FILE_SAVE_PATH + sessionid);
@@ -63,7 +75,43 @@ public class BioDataController {
                 }
             }
         }
-        dataCollectionSignal = true;
+        dataCollectionSignal = "start";
+        return "bio data start success";
+    }
+
+    @RequestMapping("/start-baseline/{sessionid}")
+    public String startBaseline(@PathVariable("sessionid") String sessionid) {
+        if (baselineSignal.equals("start")) {
+            return "baseline empatica already started";
+        }
+
+        baselineSignal = "start";
+
+        String[] commandArray = {"acc", "bvp", "gsr", "ibi", "tmp"};
+        String[] deviceArray = {"3b9efd", "a39bfd", "379efd", "59ce11"};
+
+
+        File dir = new File(ConstantValues.FILE_SAVE_PATH + sessionid);
+        if (!dir.exists()) {
+            log.info("start bio data make dir result: " + dir.mkdir());
+        } else {
+            log.info("start bio data: session dir exist");
+        }
+
+        for (String device : deviceArray) {
+            for (String command : commandArray) {
+                try {
+
+                    bioDataServiceAPI.getBaselineBioData(device, command, ConstantValues.FILE_SAVE_PATH + sessionid + "\\", sessionid);
+                    log.info("getBioData started:" + device);
+                } catch (Exception e) {
+                    log.error("error in device:{}, command:{}", device, command);
+                    e.printStackTrace();
+                    return "bio data start exception";
+                }
+            }
+        }
+
         return "bio data start success";
     }
 
@@ -73,7 +121,8 @@ public class BioDataController {
      */
     @RequestMapping("/stop")
     public String stop() {
-        dataCollectionSignal = false;
+        dataCollectionSignal = "stop";
+        baselineSignal = "stop";
         return "bio data stop success";
     }
 
