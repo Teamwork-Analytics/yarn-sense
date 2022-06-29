@@ -69,9 +69,9 @@ public class VideoUtils {
      * @throws FrameGrabber.Exception
      * @throws FFmpegFrameRecorder.Exception
      */
-    public VideoUtils(String fileName, boolean isHaveDevice) throws FrameGrabber.Exception, FFmpegFrameRecorder.Exception {
+    public VideoUtils(int camera_id, String fileName, boolean isHaveDevice) throws FrameGrabber.Exception, FFmpegFrameRecorder.Exception {
 
-        grabber = FrameGrabber.createDefault(0); //local camera default device id is 0
+        grabber = FrameGrabber.createDefault(camera_id); //local camera default device id is 0
         log.info("generate grabber");
         grabber.setImageHeight(720);
         grabber.setImageWidth(1280);

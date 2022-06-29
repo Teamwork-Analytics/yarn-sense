@@ -14,4 +14,5 @@ public interface VideoServiceAPI {
 //    void receiveVideo(File destFile, InputStream inputStream) throws Exception;
 //    void combineVideo(String destPath, String sessionId) throws Exception;
     void recordingVideoUsingFFmpeg(String destPath) throws Exception;
+    void recordingVideoUsingFFmpeg2(String destPath) throws Exception;
 }

@@ -60,4 +60,26 @@ public class VideoServiceImpl implements VideoServiceAPI{
         FileUtils.writeStringToFile(new File(destPath + "sync.txt"), "stop receive video data _____" + time2 + "\n", "UTF-8", true);
         log.info("video recording finish");
     }
+
+    @Async("videoRecordingExecutor")
+    @Override
+    public void recordingVideoUsingFFmpeg2(String destPath) throws Exception {
+        DateTime dt = new DateTime();
+        String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
+        FileUtils.writeStringToFile(new File(destPath + "sync.txt"), "start receive video 1 data _____" + time + "\n", "UTF-8", true);
+
+        VideoController.videoRecord2.start();
+        while (true) {
+            if (VideoController.controlVideo.equalsIgnoreCase("stop")) {
+                VideoController.videoRecord2.stop();
+
+                log.info("****stop recording****");
+                break;
+            }
+        }
+        DateTime dt2 = new DateTime();
+        String time2 = dt2.toString("yyyy-MM-dd_HH-mm-ss-SSS");
+        FileUtils.writeStringToFile(new File(destPath + "sync.txt"), "stop receive video 2 data _____" + time2 + "\n", "UTF-8", true);
+        log.info("video recording finish");
+    }
 }
