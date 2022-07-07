@@ -4,7 +4,7 @@ import com.monash.analytics.biodata.constant.ConstantValues;
 import com.monash.analytics.biodata.controller.BioDataController;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.kafka.clients.producer.Producer;
+//import org.apache.kafka.clients.producer.Producer;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.joda.time.DateTime;
@@ -21,7 +21,7 @@ import java.net.Socket;
 @Service
 public class BioDataServiceImpl implements BioDataServiceAPI {
 
-    private Producer<String, String> producer = null;
+//    private Producer<String, String> producer = null;
     /**
      * DeviceId:    3b9efd, a39bfd, 379efd
      * S/N:         A029AC, A029F6, A02555
@@ -84,7 +84,7 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
             out.println("device_subscribe " + command + " ON");
             Thread.sleep(500);
             log.info("resp:" + in.readLine());
-            producer = KafkaProducerUtils.createProducer();
+//            producer = KafkaProducerUtils.createProducer();
 
             DateTime dt = new DateTime();
             String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
@@ -94,7 +94,7 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
 
             if (command.equals("acc") || command.equals("bvp")) {
                 while ((temp = in.readLine()) != null) {
-                    KafkaProducerUtils.producerSend(producer, temp, deviceId, sessionId);
+//                    KafkaProducerUtils.producerSend(producer, temp, deviceId, sessionId);
 
                     sb.append("resp:").append(temp).append("\n");
                     //use buffer
@@ -110,8 +110,8 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
                 }
             } else {
                 while ((temp = in.readLine()) != null) {
-                    KafkaProducerUtils.producerSend(producer, temp, deviceId, sessionId);
-                    FileUtils.writeStringToFile(new File(destPath + deviceId + "_" + command + ".txt"), temp, "UTF-8", true);
+//                    KafkaProducerUtils.producerSend(producer, temp, deviceId, sessionId);
+                    FileUtils.writeStringToFile(new File(destPath + deviceId + "_" + command + ".txt"), temp + "\n", "UTF-8", true);
                     log.info("append data to file" + deviceId + "_" + command + ".txt");
 
                     if (BioDataController.dataCollectionSignal.equals("stop")) {
@@ -166,7 +166,7 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
             out.println("device_subscribe " + command + " ON");
             Thread.sleep(500);
             log.info("resp:" + in.readLine());
-            producer = KafkaProducerUtils.createProducer();
+//            producer = KafkaProducerUtils.createProducer();
 
             DateTime dt = new DateTime();
             String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
@@ -177,7 +177,7 @@ public class BioDataServiceImpl implements BioDataServiceAPI {
             while ((temp = in.readLine()) != null) {
                 sb.append("resp:").append(temp).append("\n");
 
-                KafkaProducerUtils.producerSend(producer, temp, deviceId, sessionId);
+//                KafkaProducerUtils.producerSend(producer, temp, deviceId, sessionId);
                 //use buffer
                 if (sb.length() >= 1000) {
 
