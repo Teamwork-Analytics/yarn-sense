@@ -32,6 +32,8 @@ public class VideoController {
     public static VideoUtils videoRecord = null;
     public static VideoUtils videoRecord2 = null;
 
+    public static VideoUtils videoRecord3 = null;
+
     public final static String destPath = "C:\\develop\\saved_data\\"; //need to change TODO
 
     /**
@@ -73,6 +75,8 @@ public class VideoController {
             videoRecord.init();
             videoRecord2 = new VideoUtils(1, destPath + "videos\\" + sessionid + "_2_" + time, false);
             videoRecord2.init();
+            videoRecord3 = new VideoUtils(2, destPath + "videos\\" + sessionid + "_3_" + time, false);
+            videoRecord3.init();
         } catch (Exception e) {
             e.printStackTrace();
             log.error("exception in video init");
@@ -99,7 +103,7 @@ public class VideoController {
         if (controlVideo.equals("start")) {
             return "video already started";
         }
-        if (controlVideo.equals("stop") || videoRecord == null || videoRecord2 == null) {
+        if (controlVideo.equals("stop") || videoRecord == null || videoRecord2 == null || videoRecord3 == null) {
 
 
             try {
@@ -122,6 +126,7 @@ public class VideoController {
         try {
             videoServiceAPI.recordingVideoUsingFFmpeg(destPath + sessionid + "\\");
             videoServiceAPI.recordingVideoUsingFFmpeg2(destPath + sessionid + "\\");
+            videoServiceAPI.recordingVideoUsingFFmpeg3(destPath + sessionid + "\\");
         } catch (Exception e) {
             return "video start exception";
         }
@@ -154,6 +159,9 @@ public class VideoController {
         if (videoRecord2 != null) {
             videoRecord2.stop();
         }
+        if (videoRecord3 != null) {
+            videoRecord3.stop();
+        }
         File dir = new File(destPath + sessionid);
         if (!dir.exists()) {
             log.info("re init video make dir result: " + dir.mkdir());
@@ -164,13 +172,17 @@ public class VideoController {
         DateTime dt = new DateTime();
         String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
 
-        videoRecord = new VideoUtils(0, destPath + "\\videos\\" + sessionid + "_1_" + time, true);
+        videoRecord = new VideoUtils(0, destPath + "videos\\" + sessionid + "_1_" + time, true);
         videoRecord.init();
         videoServiceAPI.recordingVideoUsingFFmpeg(destPath + sessionid + "\\");
 
-        videoRecord2 = new VideoUtils(0, destPath + "\\videos\\" + sessionid + "_2_" + time, true);
+        videoRecord2 = new VideoUtils(1, destPath + "videos\\" + sessionid + "_2_" + time, false);
         videoRecord2.init();
         videoServiceAPI.recordingVideoUsingFFmpeg2(destPath + sessionid + "\\");
+
+        videoRecord3 = new VideoUtils(2, destPath + "videos\\" + sessionid + "_3_" + time, false);
+        videoRecord3.init();
+        videoServiceAPI.recordingVideoUsingFFmpeg3(destPath + sessionid + "\\");
 
         controlVideo = "start";
     }

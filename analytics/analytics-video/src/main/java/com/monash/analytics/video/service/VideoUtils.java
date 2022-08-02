@@ -98,7 +98,7 @@ public class VideoUtils {
         // Highest quality
         recorder.setAudioQuality(0);
         recorder.setAudioCodec(avcodec.AV_CODEC_ID_AAC);
-        canvasFrame = new CanvasFrame("camera", CanvasFrame.getDefaultGamma() / grabber.getGamma());
+        canvasFrame = new CanvasFrame("camera" + camera_id, CanvasFrame.getDefaultGamma() / grabber.getGamma());
         canvasFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //        frame.setAlwaysOnTop(true);
         canvasFrame.setCanvasSize(1280, 720);

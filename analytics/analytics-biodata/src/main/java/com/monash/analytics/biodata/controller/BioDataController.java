@@ -72,13 +72,14 @@ public class BioDataController {
     public String start(@PathVariable("sessionid") String sessionid) {
 
 
+
         if (dataCollectionSignal.equals("start")) {
             return "empatica already started";
         }
 
         String[] commandArray = {"acc", "bvp", "gsr", "ibi", "tmp"};
 //        String[] deviceArray = {"3b9efd", "a39bfd", "379efd", "59ce11"};
-        String[] deviceArray = getDeviceIdAccordingSN("A03696", "A0217A", "A03588", "A012EF");
+        String[] deviceArray = getDeviceIdAccordingSN("A029AC", "A0217A", "A03588", "A012EF");
 
         File dir = new File(ConstantValues.FILE_SAVE_PATH + sessionid);
         if (!dir.exists()) {
