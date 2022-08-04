@@ -111,7 +111,7 @@ public class PositionServiceImpl implements PositionServiceAPI{
 
             String sessionId = destPath.substring(destPath.length() - 4, destPath.length() - 1);
             File copied = new File(
-                    "C:\\develop\\obs-rules\\server\\localisation\\data\\" + sessionId + ".json");  //for Gloria program, not used 
+                    "C:\\develop\\obs-rules\\server\\localisation\\data\\" + sessionId + ".json");  //for Gloria program, not used
             FileUtils.copyFile(new File(destPath + sessionId + ".json"), copied);
         }
     }
