@@ -31,7 +31,8 @@ import java.util.*;
 public class PositionServiceImpl implements PositionServiceAPI{
     private MqttClient sampleClient = null;
     private List<String> messageList = null;
-    private Producer<String, String> producer = null;
+
+//    private Producer<String, String> producer = null; // not use kafka anymore
 
     /**
      * start get position data from the pozyx server
@@ -48,7 +49,7 @@ public class PositionServiceImpl implements PositionServiceAPI{
         String broker       = "tcp://" + ConstantValues.LOCAL_SERVER_NAME + ":1883";
         String clientId     = "JavaSample"; //TODO 需测试
         MemoryPersistence persistence = new MemoryPersistence();
-        producer = KafkaProducerUtils.createProducer();
+//        producer = KafkaProducerUtils.createProducer(); // not use kafka anymore
 
         sampleClient = new MqttClient(broker, clientId, persistence);
         MqttConnectOptions connOpts = new MqttConnectOptions();
@@ -75,7 +76,7 @@ public class PositionServiceImpl implements PositionServiceAPI{
             public void messageArrived(String topic, MqttMessage message) throws Exception {
 
                 messageList.add(message.toString());
-                KafkaProducerUtils.producerSend(producer, message.toString(), sessionId);
+//                KafkaProducerUtils.producerSend(producer, message.toString(), sessionId);// not use kafka anymore
                 if (messageList.size() >= 1000) {
                     saveDataToFile(destPath);
                 }
@@ -106,11 +107,11 @@ public class PositionServiceImpl implements PositionServiceAPI{
             sampleClient.disconnectForcibly();
             sampleClient.close();
             log.info("force stop successfully");
-            KafkaProducerUtils.producerClose(producer);
+//            KafkaProducerUtils.producerClose(producer);// not use kafka anymore
 
             String sessionId = destPath.substring(destPath.length() - 4, destPath.length() - 1);
             File copied = new File(
-                    "C:\\develop\\obs-rules\\server\\localisation\\data\\" + sessionId + ".json");
+                    "C:\\develop\\obs-rules\\server\\localisation\\data\\" + sessionId + ".json");  //for Gloria program, not used 
             FileUtils.copyFile(new File(destPath + sessionId + ".json"), copied);
         }
     }
