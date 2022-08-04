@@ -53,5 +53,5 @@ Gloria's repository:https://github.com/gloriafer18/obs-rules/tree/gloriaRules
       position topic			
       empatica topic			
 
-      kafka data format: {"key":"key-sessionid-uuid", "value":"message"}			
+      kafka data format: {"key":"key-sessionid-uuid", "value":"message"}
       position data will be saved to one sessionid.json file
