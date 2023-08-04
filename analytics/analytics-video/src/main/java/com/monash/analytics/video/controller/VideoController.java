@@ -71,7 +71,7 @@ public class VideoController {
         String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
 
         try {
-            videoRecord = new VideoUtils(0,destPath + "videos\\" + sessionid + "_1_" + time, true);
+            videoRecord = new VideoUtils(0,destPath + sessionid + "\\" + sessionid, true);
             videoRecord.init();
             videoRecord2 = new VideoUtils(1, destPath + "videos\\" + sessionid + "_2_" + time, false);
             videoRecord2.init();
