@@ -1,5 +1,6 @@
 package com.monash.analytics.video.controller;
 
+import com.monash.analytics.video.constant.ConstantValues;
 import com.monash.analytics.video.service.VideoServiceAPI;
 import com.monash.analytics.video.service.VideoUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -34,8 +35,6 @@ public class VideoController {
 
     public static VideoUtils videoRecord3 = null;
 
-    public final static String destPath = "C:\\develop\\saved_data\\"; //need to change TODO
-
     /**
      * init video which can shorten the video start time
      * @param sessionid
@@ -60,7 +59,7 @@ public class VideoController {
         }
 
         controlVideo = "init";
-        File dir = new File(destPath + sessionid);
+        File dir = new File(ConstantValues.FILE_PATH + sessionid);
         if (!dir.exists()) {
             log.info("init video make dir result: " + dir.mkdir());
         } else {
@@ -71,11 +70,11 @@ public class VideoController {
         String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
 
         try {
-            videoRecord = new VideoUtils(0,destPath + sessionid + "\\" + sessionid, true);
+            videoRecord = new VideoUtils(0,ConstantValues.FILE_PATH + sessionid + "\\" + sessionid, true);
             videoRecord.init();
-            videoRecord2 = new VideoUtils(1, destPath + "videos\\" + sessionid + "_2_" + time, false);
+            videoRecord2 = new VideoUtils(1, ConstantValues.FILE_PATH + "videos\\" + sessionid + "_2_" + time, false);
             videoRecord2.init();
-            videoRecord3 = new VideoUtils(2, destPath + "videos\\" + sessionid + "_3_" + time, false);
+            videoRecord3 = new VideoUtils(2, ConstantValues.FILE_PATH + "videos\\" + sessionid + "_3_" + time, false);
             videoRecord3.init();
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,16 +116,16 @@ public class VideoController {
         }
 
         controlVideo = "start";
-        File dir = new File(destPath + sessionid);
+        File dir = new File(ConstantValues.FILE_PATH + sessionid);
         if (!dir.exists()) {
             log.info("start video make dir result: " + dir.mkdir());
         } else {
             log.info("start video: session dir exist");
         }
         try {
-            videoServiceAPI.recordingVideoUsingFFmpeg(destPath + sessionid + "\\");
-            videoServiceAPI.recordingVideoUsingFFmpeg2(destPath + sessionid + "\\");
-            videoServiceAPI.recordingVideoUsingFFmpeg3(destPath + sessionid + "\\");
+            videoServiceAPI.recordingVideoUsingFFmpeg(ConstantValues.FILE_PATH + sessionid + "\\");
+            videoServiceAPI.recordingVideoUsingFFmpeg2(ConstantValues.FILE_PATH + sessionid + "\\");
+            videoServiceAPI.recordingVideoUsingFFmpeg3(ConstantValues.FILE_PATH + sessionid + "\\");
         } catch (Exception e) {
             return "video start exception";
         }
@@ -162,7 +161,7 @@ public class VideoController {
         if (videoRecord3 != null) {
             videoRecord3.stop();
         }
-        File dir = new File(destPath + sessionid);
+        File dir = new File(ConstantValues.FILE_PATH + sessionid);
         if (!dir.exists()) {
             log.info("re init video make dir result: " + dir.mkdir());
         } else {
@@ -172,17 +171,17 @@ public class VideoController {
         DateTime dt = new DateTime();
         String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
 
-        videoRecord = new VideoUtils(0, destPath + "videos\\" + sessionid + "_1_" + time, true);
+        videoRecord = new VideoUtils(0, ConstantValues.FILE_PATH + "videos\\" + sessionid + "_1_" + time, true);
         videoRecord.init();
-        videoServiceAPI.recordingVideoUsingFFmpeg(destPath + sessionid + "\\");
+        videoServiceAPI.recordingVideoUsingFFmpeg(ConstantValues.FILE_PATH + sessionid + "\\");
 
-        videoRecord2 = new VideoUtils(1, destPath + "videos\\" + sessionid + "_2_" + time, false);
+        videoRecord2 = new VideoUtils(1, ConstantValues.FILE_PATH + "videos\\" + sessionid + "_2_" + time, false);
         videoRecord2.init();
-        videoServiceAPI.recordingVideoUsingFFmpeg2(destPath + sessionid + "\\");
+        videoServiceAPI.recordingVideoUsingFFmpeg2(ConstantValues.FILE_PATH + sessionid + "\\");
 
-        videoRecord3 = new VideoUtils(2, destPath + "videos\\" + sessionid + "_3_" + time, false);
+        videoRecord3 = new VideoUtils(2, ConstantValues.FILE_PATH + "videos\\" + sessionid + "_3_" + time, false);
         videoRecord3.init();
-        videoServiceAPI.recordingVideoUsingFFmpeg3(destPath + sessionid + "\\");
+        videoServiceAPI.recordingVideoUsingFFmpeg3(ConstantValues.FILE_PATH + sessionid + "\\");
 
         controlVideo = "start";
     }

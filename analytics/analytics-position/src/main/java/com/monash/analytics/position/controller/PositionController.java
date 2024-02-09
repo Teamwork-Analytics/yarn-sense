@@ -42,7 +42,7 @@ public class PositionController {
         }
 
         status = "start";
-        File dir = new File(ConstantValues.FILE_SAVE_PATH + sessionid);
+        File dir = new File(ConstantValues.FILE_PATH + sessionid);
         if (!dir.exists()) {
             log.info("start position make dir result: " + dir.mkdir());
         } else {
@@ -50,7 +50,7 @@ public class PositionController {
         }
 
         try {
-            positionServiceAPI.startRecordingPosition(ConstantValues.FILE_SAVE_PATH + sessionid + "\\", sessionid);
+            positionServiceAPI.startRecordingPosition(ConstantValues.FILE_PATH + sessionid + "\\", sessionid);
         } catch (Exception e) {
             e.printStackTrace();
             status = "stop";
@@ -71,7 +71,7 @@ public class PositionController {
                 return "position already stopped";
             }
             status = "stop";
-            positionServiceAPI.stopRecordingPosition(ConstantValues.FILE_SAVE_PATH + sessionId + "\\");
+            positionServiceAPI.stopRecordingPosition(ConstantValues.FILE_PATH + sessionId + "\\");
         } catch (Exception e) {
             return "exception in stopRecordingPosition";
         }

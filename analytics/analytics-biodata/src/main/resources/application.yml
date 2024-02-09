@@ -1,6 +1,6 @@
 
 mybatis-plus:
-  mapper-locations: classpath*:com/monash/analyticcs/**/xml/*Mapper.xml
+  mapper-locations: classpath*:com/monash/analytics/**/xml/*Mapper.xml
   global-config:
     id-type: 0
     db-column-underline: false
