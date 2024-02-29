@@ -2,6 +2,7 @@ package com.monash.analytics.video.utils;
 
 import com.monash.analytics.utils.common.vo.BasePageVO;
 import com.monash.analytics.utils.exception.CommonServiceException;
+import com.monash.analytics.video.constant.ConstantValues;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 
@@ -20,9 +21,8 @@ public class CommonUtilsTest {
 
     @Test
     public void testFileContent() throws IOException {
-        String destPath = "C:\\develop\\saved_data\\";
-        File file1 = new File(destPath + "undefinedaaa.webm");
-        File file2 = new File(destPath + "myVideo.webm");
+        File file1 = new File(ConstantValues.FILE_PATH + "undefinedaaa.webm");
+        File file2 = new File(ConstantValues.FILE_PATH + "myVideo.webm");
         byte[] b1 = FileUtils.readFileToByteArray(file1);
         byte[] b2 = FileUtils.readFileToByteArray(file2);
         System.out.println(b1.length);
@@ -45,9 +45,8 @@ public class CommonUtilsTest {
 
     @Test
     public void testFileContent2() throws IOException {
-        String destPath = "C:\\develop\\saved_data\\";
-        File file1 = new File(destPath + "undefined.txt");
-        File file2 = new File(destPath + "myVideo.txt");
+        File file1 = new File(ConstantValues.FILE_PATH + "undefined.txt");
+        File file2 = new File(ConstantValues.FILE_PATH + "myVideo.txt");
         String s1 = FileUtils.readFileToString(file1, "UTF-8");
         String s2 = FileUtils.readFileToString(file2, "UTF-8");
         System.out.println(s1.length());
@@ -68,9 +67,8 @@ public class CommonUtilsTest {
 
     @Test
     public void testFileContent3() throws IOException {
-        String destPath = "C:\\develop\\saved_data\\";
-        File file1 = new File(destPath + "undefined.txt");
-        File file2 = new File(destPath + "myVideo.txt");
+        File file1 = new File(ConstantValues.FILE_PATH + "undefined.txt");
+        File file2 = new File(ConstantValues.FILE_PATH + "myVideo.txt");
         List<String> s1 = FileUtils.readLines(file1);
         List<String> s2 = FileUtils.readLines(file2);
         System.out.println(s1.size());

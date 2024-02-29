@@ -16,7 +16,7 @@ public class ConstantValues {
     public static final String KAFKA_API_SECRET = "";
     public static final String KAFKA_SERVER = "";
     public static final String FILE_SAVE_PATH = "C:\\develop\\saved_data\\";
-    public static final String LOCAL_SERVER_NAME = "49.127.70.209";//"localhost"; //49.127.21.202 // POZYX LAPTOP IP ADDRESS
+    public static final String LOCAL_SERVER_NAME = "localhost"; //49.127.70.209
     public static final Map<String, String> kafkaNameMap = ImmutableMap.of(
             "27160","0x6a18",
             "27226","0x6a5a",

@@ -32,7 +32,7 @@ public class AudioMessageController {
         DateTime dt = new DateTime();
         String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
         try {
-            FileUtils.writeStringToFile(new File(ConstantValues.FILE_SAVE_PATH + sessionid + "\\" + "sync.txt"), message + "_____" + time + "\n", "UTF-8", true);
+            FileUtils.writeStringToFile(new File(ConstantValues.FILE_PATH + sessionid + "\\" + "sync.txt"), message + "_____" + time + "\n", "UTF-8", true);
         } catch (IOException e) {
             e.printStackTrace();
             return "error in " + message;
@@ -45,7 +45,7 @@ public class AudioMessageController {
         DateTime dt = new DateTime();
         String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
         try {
-            FileUtils.writeStringToFile(new File(ConstantValues.FILE_SAVE_PATH + sessionid + "\\" + "sync.txt"), message + "_____" + time + "\n", "UTF-8", true);
+            FileUtils.writeStringToFile(new File(ConstantValues.FILE_PATH + sessionid + "\\" + "sync.txt"), message + "_____" + time + "\n", "UTF-8", true);
         } catch (IOException e) {
             e.printStackTrace();
             return "error in " + message;
