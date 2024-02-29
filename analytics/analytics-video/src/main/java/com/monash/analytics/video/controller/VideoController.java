@@ -21,7 +21,7 @@ import java.util.Base64;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://49.127.25.204:3000","http://localhost:3000"}) // this pc IP address
 public class VideoController {
     private static String checkSessionId = "";
     public static String controlVideo = "";
@@ -71,7 +71,7 @@ public class VideoController {
         String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
 
         try {
-            videoRecord = new VideoUtils(0,destPath + "videos\\" + sessionid + "_1_" + time, true);
+            videoRecord = new VideoUtils(0,destPath + sessionid + "\\" + sessionid, true);
             videoRecord.init();
             videoRecord2 = new VideoUtils(1, destPath + "videos\\" + sessionid + "_2_" + time, false);
             videoRecord2.init();
@@ -172,7 +172,7 @@ public class VideoController {
         DateTime dt = new DateTime();
         String time = dt.toString("yyyy-MM-dd_HH-mm-ss-SSS");
 
-        videoRecord = new VideoUtils(0, destPath + "videos\\" + sessionid + "_1_" + time, true);
+        videoRecord = new VideoUtils(0, destPath + sessionid + "\\" + sessionid, true);
         videoRecord.init();
         videoServiceAPI.recordingVideoUsingFFmpeg(destPath + sessionid + "\\");
 

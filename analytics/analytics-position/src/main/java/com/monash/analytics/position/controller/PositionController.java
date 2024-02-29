@@ -19,7 +19,7 @@ import java.io.File;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://49.127.25.204:3000","http://localhost:3000"}) // this pc IP address
 @RequestMapping(value = "/pos")
 public class PositionController {
     private static String sessionId = "";
