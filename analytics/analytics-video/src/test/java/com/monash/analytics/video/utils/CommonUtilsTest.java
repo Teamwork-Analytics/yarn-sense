@@ -20,7 +20,7 @@ public class CommonUtilsTest {
 
     @Test
     public void testFileContent() throws IOException {
-        String destPath = "C:\\develop\\saved_data\\";
+        String destPath = "C:\\Users\\colam\\Documents\\saved_data\\";
         File file1 = new File(destPath + "undefinedaaa.webm");
         File file2 = new File(destPath + "myVideo.webm");
         byte[] b1 = FileUtils.readFileToByteArray(file1);
@@ -45,7 +45,7 @@ public class CommonUtilsTest {
 
     @Test
     public void testFileContent2() throws IOException {
-        String destPath = "C:\\develop\\saved_data\\";
+        String destPath = "C:\\Users\\colam\\Documents\\saved_data\\";
         File file1 = new File(destPath + "undefined.txt");
         File file2 = new File(destPath + "myVideo.txt");
         String s1 = FileUtils.readFileToString(file1, "UTF-8");
@@ -68,7 +68,7 @@ public class CommonUtilsTest {
 
     @Test
     public void testFileContent3() throws IOException {
-        String destPath = "C:\\develop\\saved_data\\";
+        String destPath = "C:\\Users\\colam\\Documents\\saved_data\\";
         File file1 = new File(destPath + "undefined.txt");
         File file2 = new File(destPath + "myVideo.txt");
         List<String> s1 = FileUtils.readLines(file1);

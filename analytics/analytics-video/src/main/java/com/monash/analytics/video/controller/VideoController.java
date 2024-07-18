@@ -21,7 +21,7 @@ import java.util.Base64;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = {"http://49.127.25.204:3000","http://localhost:3000"}) // this pc IP address
+@CrossOrigin(origins = {"*","http://localhost:3000"}) // this pc IP address
 public class VideoController {
     private static String checkSessionId = "";
     public static String controlVideo = "";
@@ -34,7 +34,7 @@ public class VideoController {
 
     public static VideoUtils videoRecord3 = null;
 
-    public final static String destPath = "C:\\develop\\saved_data\\"; //need to change TODO
+    public final static String destPath = "C:\\Users\\colam\\Documents\\saved_data\\"; //need to change TODO
 
     /**
      * init video which can shorten the video start time

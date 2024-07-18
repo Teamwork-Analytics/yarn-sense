@@ -55,7 +55,7 @@ public class KafkaConsumerUtils {
                         record.partition(), record.offset(), record.key(), record.value()));
                 if (sb.length() > 10000) {
                     try {
-                        FileUtils.writeStringToFile(new File("C:\\develop\\saved_data\\kafka_comsuer.txt"), sb.toString(), "UTF-8", true);
+                        FileUtils.writeStringToFile(new File("C:\\Users\\colam\\Documents\\saved_data\\kafka_comsuer.txt"), sb.toString(), "UTF-8", true);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -69,7 +69,7 @@ public class KafkaConsumerUtils {
             }
         }
         try {
-            FileUtils.writeStringToFile(new File("C:\\develop\\saved_data\\kafka_comsuer.txt"), sb.toString(), "UTF-8", true);
+            FileUtils.writeStringToFile(new File("C:\\Users\\colam\\Documents\\saved_data\\kafka_comsuer.txt"), sb.toString(), "UTF-8", true);
         } catch (IOException e) {
             e.printStackTrace();
         }
