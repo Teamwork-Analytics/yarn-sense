@@ -18,7 +18,7 @@ import java.io.IOException;
  */
 
 @RestController
-@CrossOrigin(origins = {"*","http://localhost:3000"}) // [1: audio laptop ip address , 2: this pc IP address]
+@CrossOrigin(origins = {"*","http://localhost:3000", "http://192.168.1.103:3000"}) // [1: audio laptop ip address , 2: this pc IP address]
 @RequestMapping("/audio")
 public class AudioMessageController {
     /**

@@ -34,7 +34,7 @@ public class VideoController {
 
     public static VideoUtils videoRecord3 = null;
 
-    public final static String destPath = "C:\\Users\\colam\\Documents\\saved_data\\"; //need to change TODO
+    public final static String destPath = "C:\\Users\\Teamwork Analytics\\Documents\\saved_data\\"; //need to change TODO
 
     /**
      * init video which can shorten the video start time

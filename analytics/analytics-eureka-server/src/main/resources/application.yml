@@ -10,7 +10,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
   service-url:
-    defaultZone: http://130.194.72.3:8761/eureka/
+    defaultZone: http://192.168.1.103:8761/eureka/
 
 logging:
   config: classpath:logback.xml

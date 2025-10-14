@@ -22,6 +22,7 @@
         <module>analytics-position</module>
         <module>analytics-biodata</module>
         <module>analytics-eureka-server</module>
+        <module>multimodal-audio/untitled</module>
     </modules>
 
     <properties>
